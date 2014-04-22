@@ -1,0 +1,4 @@
+= simple_form_for(@category) do |f|
+  = f.error_notification
+  = f.input :name, html_options: {placeholder: 'Most awesome category ever'}
+  = f.button :submit, class: 'form-button small'

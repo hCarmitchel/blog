@@ -1,0 +1,10 @@
+.row
+  .large-12
+    .page-header
+      %h1= @entry.title
+      %ul.button-group.header-actions
+        %li
+          %a{href: entry_path(@entry), method: :delete, data: {confirm: 'You sure?'}, class: 'button small alert'}= 'Delete'
+    .page-body
+      %p= @entry.url
+

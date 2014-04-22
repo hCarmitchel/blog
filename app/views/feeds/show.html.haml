@@ -1,0 +1,23 @@
+.row
+  .large-12
+    .page-header
+      %h1= @feed.title
+      %ul.button-group.header-actions
+        %li
+          %a{href: edit_feed_path(@feed), class: 'button small'}= 'Edit'
+        %li
+          %a{href: feed_path(@feed), method: :delete, data: {confirm: 'You sure?'}, class: 'button small alert'}= 'Delete'
+.row
+  .large-9.columns
+    .page-body
+      %p= @feed.url
+    - if @feed.categories.any?
+      %h5 Categories:
+      %p= @feed.categories.map(&:name).join(", ")
+    %h5= "Entries (#{@feed.entries.count}):"
+    - @feed.entries.each do |entry|
+      %p= entry.summary
+      = image_tag entry.image
+
+  .large-3.columns.feed-image
+    = image_tag @feed.image

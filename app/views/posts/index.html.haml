@@ -1,0 +1,28 @@
+.page-header
+  %h1= 'Posts'
+  .header-actions
+    %a{href: new_post_path, class: 'button small'}= 'New Post'
+
+#searchable-posts.searchable
+  %input{type: 'text', class: 'search', placeholder: 'Search'}
+  %table
+    %thead
+      %tr
+        %td.sort{'data-sort' => 'post-title'}= 'Title'
+        %td.sort{'data-sort' => 'post-body'}= 'Body'
+        %td= 'Actions'
+      %tbody.list
+        - @posts.each do |post|
+          %tr
+            %td.post-title
+              = link_to post.title, post_path(post)
+            %td
+              .post-snippet= post.snippet
+              .post-body= post.body
+            %td.actions
+              = link_to edit_post_path(post) do
+                %i.fa.fa-edit
+              = link_to post_path(post), method: :delete, data: {confirm: "You sure?"} do
+                %i.fa.fa-trash-o
+
+

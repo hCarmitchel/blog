@@ -1,0 +1,23 @@
+.page-header
+  %h1= 'Entries'
+
+#searchable-entries.searchable
+  %input{type: 'text', class: 'search', placeholder: 'Search'}
+  %table
+    %thead
+      %tr
+        %td.sort{'data-sort' => 'entry-title'}= 'Title'
+        %td.sort{'data-sort' => 'entry-url'}= 'Url'
+        %td
+      %tbody.list
+        - @entries.each do |entry|
+          %tr
+            %td.post-title
+              = link_to entry.title, entry_path(entry)
+            %td
+              .entry-url= entry.url
+            %td.actions
+              = link_to feed_path(feed), method: :delete, data: {confirm: "You sure?"} do
+                %i.fa.fa-trash-o
+
+

@@ -1,0 +1,28 @@
+.page-header
+  %h1= 'Feeds'
+  .header-actions
+    %a{href: new_feed_path, class: 'button small'}= 'New Feed'
+
+#searchable-feeds.searchable
+  %input{type: 'text', class: 'search', placeholder: 'Search'}
+  %table
+    %thead
+      %tr
+        %td.sort{'data-sort' => 'feed-title'}= 'Title'
+        %td.sort{'data-sort' => 'feed-url'}= 'Url'
+        %td= 'Entries'
+        %td= 'Actions'
+      %tbody.list
+        - @feeds.each do |feed|
+          %tr
+            %td.post-title
+              = link_to feed.title, feed_path(feed)
+            %td
+              .feed-url= feed.url
+            %td
+              - feed.entries.count
+            %td.actions
+              = link_to edit_feed_path(feed) do
+                %i.fa.fa-edit
+              = link_to feed_path(feed), method: :delete, data: {confirm: "You sure?"} do
+                %i.fa.fa-trash-o

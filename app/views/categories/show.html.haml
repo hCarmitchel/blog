@@ -1,0 +1,13 @@
+.row
+  .large-12
+    .page-header
+      %h1= @category.title
+      %ul.button-group.header-actions
+        %li
+          %a{href: edit_category_path(@category), class: 'button small'}= 'Edit'
+        %li
+          %a{href: category_path(@category), method: :delete, data: {confirm: 'You sure?'}, class: 'button small alert'}= 'Delete'
+.row
+  .large-12.columns
+    .page-body
+      %p= @category.name

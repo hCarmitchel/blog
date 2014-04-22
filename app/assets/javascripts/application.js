@@ -12,5 +12,25 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
+//= require list
+//= require select2
 //= require_tree .
+
+$(function(){
+  $(document).foundation();
+
+  var options = {
+    valueNames: ['post-title', 'post-body']
+  };
+  new List('searchable-posts', options);
+
+  var options = {
+    valueNames: ['feed-title', 'feed-body']
+  };
+  new List('searchable-feeds', options);
+
+  $("#feed_category_ids").select2({tokenSeparators: [",", " "], placeholder: 'Enter some cool categories'});
+});
+

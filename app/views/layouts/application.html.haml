@@ -1,0 +1,36 @@
+!!! 5
+%html.no-js
+  %head
+    %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=edge'}
+    %title= 'Home'
+    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css'
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}
+    = javascript_include_tag 'vendor/modernizr'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    %nav.top-bar
+      %section.top-bar-section
+        / Left Nav Section
+        %ul.left
+          %li{class: active_tab('home')}
+            = link_to 'Home', root_url
+          %li.divider
+          %li{class: active_tab('posts')}
+            = link_to 'Posts', posts_url
+          %li.divider
+          %li{class: active_tab('feeds')}
+            = link_to 'Feeds', feeds_url
+          %li.divider
+          %li{class: active_tab('categories')}
+            = link_to 'Categories', categories_url
+          %li.divider
+
+        / Right Nav Section
+        %ul.right
+          %li.divider.show-for-small
+            %li= link_to 'Login', root_url
+    .main
+      = yield
+

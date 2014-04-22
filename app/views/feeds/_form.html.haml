@@ -1,0 +1,7 @@
+= simple_form_for(@feed) do |f|
+  = f.error_notification
+  = f.input :title, html_options: {placeholder: 'Most awesome feed title'}
+  = f.input :url, html_options: {placeholder: 'Feed Url'}
+  = f.input :image, html_options: {placeholder: 'Image url'}
+  = f.association :categories, include_blank: true
+  = f.button :submit, class: 'form-button small'

@@ -1,0 +1,48 @@
+table {
+  margin: 0 auto;
+  width: 99%;
+}
+
+.main {
+  margin-top: 10px;
+}
+
+.form-button {
+  float: right;
+}
+
+.page-header h1 {
+  float: left;
+  margin-left: 10px;
+}
+
+.header-actions {
+  float: right;
+  margin: 10px;
+}
+
+textarea {
+  height: auto;
+}
+
+.page-body {
+  clear: both;
+}
+
+.searchable input {
+  margin: 0 auto;
+  width: 99%;
+}
+
+.select2-container {
+  margin: 0 0 1rem 0;
+  width: 100%;
+}
+
+body {
+  background-color: #7A8498;
+}
+
+.main-display {
+  margin: -10px 0 0 0;
+}

@@ -1,0 +1,6 @@
+= simple_form_for(@post) do |f|
+  = f.error_notification
+  = f.input :title
+  = f.input :image
+  = f.input :body, input_html: {rows: 20, placeholder: 'Enter some amazing story...'}
+  = f.button :submit, class: 'form-button small'
